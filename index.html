@@ -22,6 +22,7 @@
     font-family: 'Georgia', serif;
     background: var(--light);
     color: var(--ink);
+    line-height: 1.6;
   }
 
   /* ── HERO ── */
@@ -29,7 +30,7 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    min-height: 600px;
+    min-height: 650px;
     overflow: hidden;
     background: #0d1f3c;
   }
@@ -49,7 +50,7 @@
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    z-index: 2;
+    z-index: 10;
   }
 
   .hero-badge {
@@ -129,7 +130,7 @@
     opacity: 0;
     animation: fadeUp 1s ease 2.2s forwards;
     white-space: nowrap;
-    z-index: 3;
+    z-index: 10;
   }
 
   .hero-loc {
@@ -141,7 +142,7 @@
     padding: 6px 16px;
     border: 1px solid rgba(126,207,179,0.3);
     border-radius: 2px;
-    background: rgba(10, 22, 40, 0.4);
+    background: rgba(10, 22, 40, 0.6);
   }
 
   .hero-loc.on { color: var(--teal); border-color: rgba(126,207,179,0.8); }
@@ -154,7 +155,7 @@
     text-transform: uppercase;
     opacity: 0;
     animation: fadeUp 1s ease 2.5s forwards;
-    z-index: 3;
+    z-index: 10;
   }
 
   .hero-tl { top: 24px; left: 24px; color: rgba(168,196,212,0.7); }
@@ -381,6 +382,7 @@
 </head>
 <body>
 
+<!-- ═══════════════════════════════════════════ HERO ═══ -->
 <div class="hero">
   <canvas id="c"></canvas>
   <div class="hero-ui">
@@ -413,78 +415,110 @@
   <div class="scroll-hint">Scroll for report ↓</div>
 </div>
 
+<!-- ═══════════════════════════════════════════ REPORT ═══ -->
 <div class="report">
 
   <div class="context-block">
-    <strong>Strategic Context —</strong> Synthesis of real-time tide, temperature, and social chatter identifies high-probability targets for shore/wade sessions within 72 hours.
+    <strong>Strategic Context —</strong> If real-time tide, temperature, and social chatter data are synthesized with geospatial access mapping, we can identify 3+ high-probability shore/wade targets with species-specific strike windows within 72 hours.
   </div>
 
+  <!-- SECTION 1 -->
   <div class="section">
     <div class="section-label">Section 01</div>
     <h2>Public Access Fishing Locations</h2>
-    <p>Ten confirmed public access points mapped across the corridor. All verified via multi-source intelligence.</p>
+    <p>Ten confirmed public shore/wade access points were mapped across the Indianola → Port O'Connor corridor. All are free, confirmed via multi-source verification including TPWD, community forums, local guides, and GLO records.</p>
     <ul>
-      <li><strong>Indianola Fishing Park</strong> — Popular public fishing pier with direct access to Matagorda Bay.</li>
-      <li><strong>Port O'Connor — Boggy Bayou</strong> — Shallow flats for walk-in wade fishing; public lighted pier at the east end.</li>
-      <li><strong>Little Jetties (Walkable)</strong> — Inside east-side wall confirmed best for non-boaters.</li>
-      <li><strong>Port Lavaca Causeway Pier</strong> — Free, lighted, 24-hour access targeting trout and redfish.</li>
-      <li><strong>Current Signal</strong> — Reports confirm strong wade fishing for trout and heavy flounder counts (14 in one session).</li>
+      <li><strong>Indianola Fishing Park</strong> — Free public fishing pier with direct access to Matagorda Bay. One of the most popular shore fishing spots in Calhoun County and a favorite for families.</li>
+      <li><strong>Port O'Connor — Boggy Bayou & Little Jetty Area</strong> — Shallow flats for walk-in wade fishermen at Boggy Bayou and the Little Jetty area. A public lighted fishing pier is also available at the east end of town.</li>
+      <li><strong>Little Jetties (Walkable Structure)</strong> — Confirmed walkable and fishable by community anglers who caught limits of speckled trout using shrimp. The inside east-side wall is best for non-boaters.</li>
+      <li><strong>Port Lavaca Causeway Fishing Pier</strong> — One of the longest lighted fishing piers on the Texas coast. Free, open 24 hours, with trout, redfish, drum, and flounder caught regularly.</li>
+      <li><strong>Current Conditions Signal</strong> — Recent local reports confirm wade fishing for trout has been strong with oversized fish showing up. Flounder reports include 14 fish in a single wade session with 6 over 16 inches.</li>
     </ul>
+    <div class="alert"><strong>Hypothesis Validated:</strong> 3+ high-probability boatless targets confirmed across the corridor.</div>
   </div>
 
+  <!-- SECTION 2 -->
   <div class="section">
     <div class="section-label">Section 02</div>
     <h2>Tidal & Solunar Windows — 72-Hour Forecast</h2>
     <div class="tbl-wrap">
       <table>
         <thead>
-          <tr><th>Day</th><th>Time Window</th><th>Solunar</th><th>Priority</th></tr>
+          <tr>
+            <th>Day</th><th>Time Window</th><th>Solunar</th><th>Conditions</th><th>Priority</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>Wed May 13</td><td>4:28–5:58 PM CDT</td><td>2/5</td><td>Low</td></tr>
-          <tr><td>Thu May 14</td><td>10:48 AM–1:18 PM CDT</td><td>2/5</td><td>Medium</td></tr>
-          <tr><td>Fri May 15</td><td>4:49–7:30 AM CDT</td><td class="gold">5/5 ★</td><td class="hi">#1 Target</td></tr>
-          <tr><td>Fri May 15</td><td>6:44–8:14 PM CDT</td><td class="gold">5/5</td><td class="teal">High</td></tr>
+          <tr><td>Wed May 13</td><td>4:28–5:58 PM CDT</td><td>2/5</td><td>SE 5-10 kt, smooth</td><td>Low</td></tr>
+          <tr><td>Thu May 14</td><td>10:48 AM–1:18 PM CDT</td><td>2/5</td><td>NE 5 kt, flat calm</td><td>Medium</td></tr>
+          <tr><td>Thu May 14</td><td>5:34–7:04 PM CDT</td><td>2/5</td><td>SE 5 kt, smooth</td><td>Medium</td></tr>
+          <tr><td>Fri May 15</td><td>4:49–7:30 AM CDT</td><td class="gold">5/5 ★</td><td>Calm, NEW MOON</td><td class="hi">#1 Target</td></tr>
+          <tr><td>Fri May 15</td><td>6:44–8:14 PM CDT</td><td class="gold">5/5</td><td>S 10-15 kt</td><td class="teal">High</td></tr>
         </tbody>
       </table>
     </div>
     <div class="matrix-note">
-      <strong>Top Signal:</strong> NEW MOON May 15 brings peak spring tide surge.
+      <strong>Top Signal:</strong> NEW MOON confirmed May 15 (0.1% illumination) = peak spring tide surge + maximum solunar activity. Water temp 82.8°F live-confirmed. Tidal range strengthening from 0.4 ft today to 1.7 ft by May 18.
     </div>
   </div>
 
+  <!-- SECTION 3 -->
   <div class="section">
     <div class="section-label">Section 03</div>
     <h2>Social Chatter & Conditions Intelligence</h2>
     <ul>
-      <li><strong>Port O'Connor (TPWD)</strong> — Slot reds inside north jetty; oversized trout in washouts.</li>
-      <li><strong>Crowd Flag</strong> — POC Big Jetties heavily crowded on weekends; inaccessible without boat.</li>
-      <li><strong>Indianola Flats</strong> — Prime May–September window for slot reds in shallows.</li>
-      <li><strong>Tournament Warning</strong> — Professional Redfish League May 29–30. Fish early.</li>
+      <li><strong>Port O'Connor rated GOOD (TPWD)</strong> — Slot redfish inside the north jetty, oversized trout in washouts on shrimp/croaker, bull redfish and jack crevalle schooling between the jetties and Bird Island on Spanish sardines and blue crab.</li>
+      <li><strong>Crowd Flag — POC Big Jetties</strong> — Port O'Connor is quiet during the week but heavily crowded on weekends. The big jetties require a 20+ minute boat ride and are completely inaccessible to the boatless angler.</li>
+      <li><strong>Forum Confirmation</strong> — A TexAgs user reported arriving at the big jetties to find them crowded, staying only ~30 minutes without catching anything before departing.</li>
+      <li><strong>Indianola Flats Intelligence</strong> — Redfish moving into the shallows of Matagorda Bay and the Indianola flats as water temps climb. May–September is prime time for slot reds in the 18–28" range. No boat required.</li>
+      <li><strong>Magnolia Beach / Indianola May Conditions</strong> — Speckled trout moving into shallow grass flats with early morning topwater action exceptional in May. Redfish concentrated in back bay waters, cruising grass flats and oyster bars. Flounder beginning to stage near passes and channel edges.</li>
+      <li><strong>Crowd Advantage</strong> — Port Lavaca/Magnolia Beach is consistently overlooked by anglers heading to Rockport or Corpus Christi — less pressure on the fish, more room on the water.</li>
+      <li><strong>Flounder Return Confirmed</strong> — Captain Pat Lester (Port O'Connor) reports flounder returning to the bays; 14 flounder caught in a single wade trip, six over 16".</li>
     </ul>
+    <div class="alert"><strong>Tournament Pressure Warning:</strong> The Professional Redfish League Tournament is scheduled May 29–30, 2026 on Matagorda Bay. Fish the area before this window to avoid maximum boat traffic congestion.</div>
   </div>
 
+  <!-- SECTION 4 -->
   <div class="section">
     <div class="section-label">Section 04</div>
     <h2>Species Behavior Model</h2>
+    <h3>Environmental Parameters</h3>
+    <ul>
+      <li><strong>Water Temp:</strong> ~82.8°F — active feeding conditions</li>
+      <li><strong>Season:</strong> Spring — baitfish moving onto shallow grass flats</li>
+      <li><strong>Tidal Pattern:</strong> Mixed diurnal; wind-driven fluctuations dominant; tidal range strengthening through May 18</li>
+    </ul>
+
     <div class="target-card">
-      <h4>Magnolia Beach · Redfish</h4>
+      <h4>Target 1 — Magnolia Beach Shoreline Gut · Redfish</h4>
       <div class="row"><strong>Strike Window</strong><span>Incoming tide +1.5 to +3 hours, dawn</span></div>
-      <div class="row"><strong>Behavior</strong><span>Schooling in shell-bottom pockets</span></div>
-      <div class="row"><strong>Presentation</strong><span>1/4oz gold spoon</span></div>
+      <div class="row"><strong>Behavior</strong><span>Schooling in shallow shell-bottom pockets, aggressive opportunistic feeding</span></div>
+      <div class="row"><strong>Presentation</strong><span>1/4oz gold spoon or live finger mullet under popping cork</span></div>
+      <div class="row"><strong>Avoid</strong><span>Weekend midday — high social chatter density detected</span></div>
     </div>
+
     <div class="target-card">
-      <h4>Indianola Pier · Seatrout</h4>
+      <h4>Target 2 — Indianola Pier Dropoffs · Spotted Seatrout</h4>
       <div class="row"><strong>Strike Window</strong><span>Outgoing tide last 2 hours, pre-sunrise</span></div>
-      <div class="row"><strong>Behavior</strong><span>Staging on deeper adjacent structure</span></div>
-      <div class="row"><strong>Presentation</strong><span>Soft plastic paddletail, near-bottom</span></div>
+      <div class="row"><strong>Behavior</strong><span>Staging on deeper adjacent structure; slower metabolism requires slower retrieve</span></div>
+      <div class="row"><strong>Presentation</strong><span>Soft plastic paddletail (chartreuse/white) on 1/8oz jighead, near-bottom</span></div>
+      <div class="row"><strong>Confidence</strong><span>HIGH</span></div>
+    </div>
+
+    <div class="target-card">
+      <h4>Target 3 — POC Jetty Base, Interior Side · Flounder</h4>
+      <div class="row"><strong>Strike Window</strong><span>Slack-to-incoming transition, afternoon</span></div>
+      <div class="row"><strong>Behavior</strong><span>Ambushing at current seams where jetty deflects tidal flow</span></div>
+      <div class="row"><strong>Presentation</strong><span>Live mud minnow on Carolina rig OR Berkley Gulp shrimp, dead-slow drag</span></div>
+      <div class="row"><strong>Crowd Risk</strong><span>MODERATE — arrive early or target weekday</span></div>
     </div>
   </div>
 
+  <!-- SECTION 7 -->
   <div class="section">
     <div class="section-label">Section 07</div>
     <h2>Low-Pressure Alternative Targets</h2>
-    <p>Identified alternatives for anglers avoiding high-chatter zones.</p>
+    <p>For anglers seeking to avoid the highest-chatter zones, three verified low-pressure alternatives were identified within the same corridor.</p>
 
     <div class="spot-card">
       <h4>Spot 1 — Magnolia Beach Shell Ridge (Lavaca Bay East Flat)</h4>
@@ -520,7 +554,7 @@
       </ul>
     </div>
 
-    <div class="alert"><strong>⚠ Avoid:</strong> POC Jetty tips & Pier railings on weekends.</div>
+    <div class="alert"><strong>⚠ Avoid:</strong> POC Jetty tips (overcrowded per chatter) &nbsp;·&nbsp; Pier railings on weekends</div>
   </div>
 
   <div class="report-footer">
@@ -541,22 +575,22 @@ resize();
 window.addEventListener('resize', resize);
 
 function waterY(x, time) {
-  return H * 0.5 + Math.sin(x * 0.01 + time * 0.05) * 8 + Math.sin(x * 0.02 - time * 0.03) * 4;
+  return H * 0.5 + Math.sin(x * 0.012 + time * 0.8) * 8 + Math.sin(x * 0.02 - time * 0.5) * 5;
 }
 
 function draw() {
   ctx.clearRect(0, 0, W, H);
   
-  // Sky Gradient
+  // Sky
   const sky = ctx.createLinearGradient(0, 0, 0, H * 0.5);
   sky.addColorStop(0, '#0d1f3c'); sky.addColorStop(1, '#2a6080');
   ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H * 0.5);
 
-  // Water Fill
+  // Water
   ctx.fillStyle = '#0a3a55';
   ctx.beginPath();
-  ctx.moveTo(0, waterY(0, t));
-  for (let x = 0; x <= W; x += 5) ctx.lineTo(x, waterY(x, t));
+  ctx.moveTo(0, waterY(0, t/10));
+  for (let x = 0; x <= W; x += 5) ctx.lineTo(x, waterY(x, t/10));
   ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill();
 
   t++;
