@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,374 +17,393 @@
     --accent: #0d4a6b;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    font-family: 'Georgia', serif;
-    background: var(--light);
-    color: var(--ink);
-    line-height: 1.6;
-  }
+body {
+font-family: 'Georgia', serif;
+background: var(--light);
+color: var(--ink);
+}
 
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 650px;
-    overflow: hidden;
-    background: #0d1f3c;
-  }
+/* ── HERO ── */
+.hero {
+position: relative;
+width: 100%;
+height: 100vh;
+min-height: 520px;
+overflow: hidden;
+}
 
-  #c {
-    position: absolute;
-    inset: 0;
-    width: 100%; 
-    height: 100%;
-    z-index: 1;
-  }
+#c {
+position: absolute;
+inset: 0;
+width: 100%; height: 100%;
+}
 
-  .hero-ui {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    z-index: 10;
-  }
+.hero-ui {
+position: absolute;
+inset: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+pointer-events: none;
+}
 
-  .hero-badge {
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--teal);
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.5s forwards;
-    margin-bottom: 14px;
-  }
+.hero-badge {
+font-family: 'Courier New', monospace;
+font-size: 11px;
+letter-spacing: 3px;
+color: var(--teal);
+text-transform: uppercase;
+opacity: 0;
+animation: fadeUp 1s ease 0.5s forwards;
+margin-bottom: 14px;
+}
 
-  .hero-title {
-    font-size: clamp(32px, 6vw, 68px);
-    font-weight: 700;
-    color: #f0f4f8;
-    text-align: center;
-    line-height: 1.1;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.9s forwards;
-    text-shadow: 0 4px 30px rgba(0,0,0,0.8);
-  }
+.hero-title {
+font-size: clamp(30px, 5.5vw, 62px);
+font-weight: 700;
+color: #f0f4f8;
+text-align: center;
+line-height: 1.15;
+opacity: 0;
+animation: fadeUp 1s ease 0.9s forwards;
+text-shadow: 0 2px 30px rgba(0,0,0,0.7);
+}
 
-  .hero-title span { color: var(--teal); }
+.hero-title span { color: var(--teal); }
 
-  .hero-sub {
-    margin-top: 18px;
-    font-family: 'Courier New', monospace;
-    font-size: clamp(11px, 1.6vw, 14px);
-    color: #a8c4d4;
-    letter-spacing: 2px;
-    text-align: center;
-    opacity: 0;
-    animation: fadeUp 1s ease 1.3s forwards;
-  }
+.hero-sub {
+margin-top: 14px;
+font-family: 'Courier New', monospace;
+font-size: clamp(11px, 1.6vw, 14px);
+color: #a8c4d4;
+letter-spacing: 2px;
+text-align: center;
+opacity: 0;
+animation: fadeUp 1s ease 1.3s forwards;
+}
 
-  .hero-divider {
-    width: 80px; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--teal), transparent);
-    margin: 24px auto;
-    opacity: 0;
-    animation: fadeUp 1s ease 1.5s forwards;
-  }
+.hero-divider {
+width: 60px; height: 2px;
+background: linear-gradient(90deg, transparent, var(--teal), transparent);
+margin: 20px auto;
+opacity: 0;
+animation: fadeUp 1s ease 1.5s forwards;
+}
 
-  .hero-stats {
-    display: flex;
-    gap: clamp(24px, 5vw, 60px);
-    opacity: 0;
-    animation: fadeUp 1s ease 1.8s forwards;
-  }
+.hero-stats {
+display: flex;
+gap: clamp(24px, 5vw, 60px);
+opacity: 0;
+animation: fadeUp 1s ease 1.8s forwards;
+}
 
-  .hero-stat { text-align: center; }
+.hero-stat { text-align: center; }
 
-  .hero-stat-val {
-    font-size: clamp(20px, 2.8vw, 28px);
-    font-weight: 700;
-    color: var(--gold);
-    font-family: 'Courier New', monospace;
-  }
+.hero-stat-val {
+font-size: clamp(20px, 2.8vw, 28px);
+font-weight: 700;
+color: var(--gold);
+font-family: 'Courier New', monospace;
+}
 
-  .hero-stat-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--teal);
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
+.hero-stat-label {
+font-size: 10px;
+letter-spacing: 2px;
+color: var(--teal);
+text-transform: uppercase;
+margin-top: 4px;
+}
 
-  .hero-locs {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: clamp(10px, 2.5vw, 28px);
-    opacity: 0;
-    animation: fadeUp 1s ease 2.2s forwards;
-    white-space: nowrap;
-    z-index: 10;
-  }
+.hero-locs {
+position: absolute;
+bottom: 28px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: clamp(10px, 2.5vw, 28px);
+opacity: 0;
+animation: fadeUp 1s ease 2.2s forwards;
+white-space: nowrap;
+}
 
-  .hero-loc {
-    font-family: 'Courier New', monospace;
-    font-size: clamp(9px, 1.1vw, 11px);
-    letter-spacing: 1.5px;
-    color: #a8c4d4;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border: 1px solid rgba(126,207,179,0.3);
-    border-radius: 2px;
-    background: rgba(10, 22, 40, 0.6);
-  }
+.hero-loc {
+font-family: 'Courier New', monospace;
+font-size: clamp(9px, 1.1vw, 11px);
+letter-spacing: 1.5px;
+color: #a8c4d4;
+text-transform: uppercase;
+padding: 5px 14px;
+border: 1px solid rgba(126,207,179,0.3);
+border-radius: 2px;
+}
 
-  .hero-loc.on { color: var(--teal); border-color: rgba(126,207,179,0.8); }
+.hero-loc.on { color: var(--teal); border-color: rgba(126,207,179,0.75); }
 
-  .hero-corner {
-    position: absolute;
-    font-family: 'Courier New', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 1s ease 2.5s forwards;
-    z-index: 10;
-  }
+.hero-corner {
+position: absolute;
+font-family: 'Courier New', monospace;
+font-size: 10px;
+letter-spacing: 2px;
+text-transform: uppercase;
+opacity: 0;
+animation: fadeUp 1s ease 2.5s forwards;
+}
 
-  .hero-tl { top: 24px; left: 24px; color: rgba(168,196,212,0.7); }
-  .hero-tr { top: 24px; right: 24px; color: rgba(126,207,179,0.7); }
+.hero-tl { top: 22px; left: 24px; color: rgba(168,196,212,0.6); }
+.hero-tr { top: 22px; right: 24px; color: rgba(126,207,179,0.6); }
 
-  .scroll-hint {
-    position: absolute;
-    bottom: 80px;
-    right: 32px;
-    font-family: 'Courier New', monospace;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: rgba(168,196,212,0.6);
-    text-transform: uppercase;
-    writing-mode: vertical-rl;
-    opacity: 0;
-    animation: fadeUp 1s ease 3s forwards;
-  }
+.scroll-hint {
+position: absolute;
+bottom: 70px;
+right: 28px;
+font-family: 'Courier New', monospace;
+font-size: 9px;
+letter-spacing: 2px;
+color: rgba(168,196,212,0.5);
+text-transform: uppercase;
+writing-mode: vertical-rl;
+opacity: 0;
+animation: fadeUp 1s ease 3s forwards;
+}
 
-  @keyframes fadeUp {
-    from { opacity:0; transform:translateY(20px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
+@keyframes fadeUp {
+from { opacity:0; transform:translateY(16px); }
+to   { opacity:1; transform:translateY(0); }
+}
 
-  /* ── REPORT BODY ── */
-  .report {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 80px 32px;
-  }
+/* ── REPORT BODY ── */
+.report {
+max-width: 860px;
+margin: 0 auto;
+padding: 64px 32px 80px;
+}
 
-  .section-label {
-    font-family: 'Courier New', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 12px;
-  }
+/* Section label */
+.section-label {
+font-family: 'Courier New', monospace;
+font-size: 10px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(--teal);
+margin-bottom: 10px;
+}
 
-  h2 {
-    font-size: clamp(22px, 3vw, 28px);
-    font-weight: 700;
-    color: var(--accent);
-    border-bottom: 2px solid var(--border);
-    padding-bottom: 12px;
-    margin-bottom: 24px;
-  }
+h2 {
+font-size: clamp(20px, 2.8vw, 26px);
+font-weight: 700;
+color: var(--accent);
+border-bottom: 2px solid var(--border);
+padding-bottom: 10px;
+margin-bottom: 20px;
+}
 
-  h3 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--ink);
-    margin: 32px 0 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
+h3 {
+font-size: 15px;
+font-weight: 700;
+color: var(--ink);
+margin: 24px 0 8px;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
 
-  p { line-height: 1.8; margin-bottom: 16px; font-size: 15px; }
+p { line-height: 1.75; margin-bottom: 14px; font-size: 15px; }
 
-  ul { margin: 0 0 20px 0; padding-left: 0; list-style: none; }
+ul { margin: 0 0 18px 0; padding-left: 0; list-style: none; }
 
-  ul li {
-    position: relative;
-    padding: 8px 0 8px 24px;
-    font-size: 14.5px;
-    line-height: 1.7;
-    border-bottom: 1px solid var(--border);
-  }
+ul li {
+position: relative;
+padding: 6px 0 6px 20px;
+font-size: 14px;
+line-height: 1.65;
+border-bottom: 1px solid var(--border);
+}
 
-  ul li:last-child { border-bottom: none; }
+ul li:last-child { border-bottom: none; }
 
-  ul li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--teal);
-    font-size: 12px;
-    top: 10px;
-  }
+ul li::before {
+content: '▸';
+position: absolute;
+left: 0;
+color: var(--teal);
+font-size: 11px;
+top: 8px;
+}
 
-  .context-block {
-    background: var(--navy);
-    color: #c8dde8;
-    border-left: 4px solid var(--teal);
-    padding: 24px 30px;
-    border-radius: 4px;
-    margin-bottom: 56px;
-    font-size: 16px;
-    line-height: 1.8;
-  }
+/* Context block */
+.context-block {
+background: var(--navy);
+color: #c8dde8;
+border-left: 4px solid var(--teal);
+padding: 22px 26px;
+border-radius: 3px;
+margin-bottom: 48px;
+font-size: 15px;
+line-height: 1.75;
+}
 
-  .context-block strong { color: var(--teal); }
+.context-block strong { color: var(--teal); }
 
-  .section { margin-bottom: 64px; }
+/* Section separator */
+.section {
+margin-bottom: 52px;
+}
 
-  .tbl-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--border); border-radius: 4px; }
+/* Table */
+.tbl-wrap { overflow-x: auto; margin-bottom: 20px; }
 
-  table { width: 100%; border-collapse: collapse; font-size: 13.5px; background: #fff; }
+table {
+width: 100%;
+border-collapse: collapse;
+font-size: 13px;
+}
 
-  thead tr { background: var(--accent); color: #fff; }
+thead tr {
+background: var(--accent);
+color: #fff;
+}
 
-  thead th {
-    padding: 12px 16px;
-    text-align: left;
-    font-family: 'Courier New', monospace;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
+thead th {
+padding: 10px 14px;
+text-align: left;
+font-family: 'Courier New', monospace;
+font-size: 10px;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+font-weight: 600;
+}
 
-  tbody tr { border-bottom: 1px solid var(--border); }
-  tbody tr:nth-child(even) { background: #f8fafc; }
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:nth-child(even) { background: #edf4f8; }
+tbody tr:last-child { border-bottom: none; }
 
-  td { padding: 12px 16px; line-height: 1.6; vertical-align: top; }
-  td.hi { color: #c8450a; font-weight: 700; }
-  td.gold { color: #b07a00; font-weight: 700; }
-  td.teal { color: #1a7a5a; font-weight: 700; }
+td {
+padding: 10px 14px;
+line-height: 1.5;
+vertical-align: top;
+}
 
-  .target-card {
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--teal);
-    border-radius: 4px;
-    padding: 24px;
-    margin-bottom: 24px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-  }
+td.hi { color: #c8450a; font-weight: 700; }
+td.gold { color: #b07a00; font-weight: 700; }
+td.teal { color: #1a7a5a; font-weight: 700; }
 
-  .target-card h4 {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 14px;
-  }
+/* Target cards */
+.target-card {
+border: 1px solid var(--border);
+border-left: 4px solid var(--teal);
+border-radius: 3px;
+padding: 20px 22px;
+margin-bottom: 20px;
+background: #fff;
+}
 
-  .target-card .row {
-    display: flex;
-    gap: 12px;
-    font-size: 14px;
-    margin-bottom: 8px;
-    line-height: 1.6;
-  }
+.target-card h4 {
+font-size: 14px;
+font-weight: 700;
+color: var(--accent);
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 12px;
+}
 
-  .target-card .row strong {
-    min-width: 130px;
-    color: var(--muted);
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding-top: 2px;
-  }
+.target-card .row {
+display: flex;
+gap: 8px;
+font-size: 13px;
+margin-bottom: 6px;
+line-height: 1.5;
+}
 
-  .alert {
-    background: #fff8e8;
-    border: 1px solid #f0c040;
-    border-left: 4px solid #e0a000;
-    border-radius: 4px;
-    padding: 16px 20px;
-    font-size: 14px;
-    margin: 24px 0;
-    line-height: 1.7;
-  }
+.target-card .row strong {
+min-width: 120px;
+color: var(--muted);
+font-family: 'Courier New', monospace;
+font-size: 11px;
+letter-spacing: 1px;
+text-transform: uppercase;
+padding-top: 1px;
+}
 
-  .alert strong { color: #b07000; }
+/* Alert box */
+.alert {
+background: #fff8e8;
+border: 1px solid #f0c040;
+border-left: 4px solid #e0a000;
+border-radius: 3px;
+padding: 14px 18px;
+font-size: 13px;
+margin: 16px 0;
+line-height: 1.6;
+}
 
-  .spot-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 20px 24px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-  }
+.alert strong { color: #b07000; }
 
-  .spot-card h4 {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 6px;
-  }
+/* Spot cards */
+.spot-card {
+background: #fff;
+border: 1px solid var(--border);
+border-radius: 3px;
+padding: 18px 22px;
+margin-bottom: 16px;
+}
 
-  .pressure {
-    display: inline-block;
-    font-family: 'Courier New', monospace;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    padding: 3px 10px;
-    border-radius: 2px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-  }
+.spot-card h4 {
+font-size: 13px;
+font-weight: 700;
+color: var(--accent);
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 4px;
+}
 
-  .pressure.low  { background: #d4f0e4; color: #1a6a44; }
-  .pressure.mod  { background: #fff0d0; color: #8a5000; }
+.pressure {
+display: inline-block;
+font-family: 'Courier New', monospace;
+font-size: 10px;
+letter-spacing: 1.5px;
+padding: 2px 8px;
+border-radius: 2px;
+margin-bottom: 10px;
+text-transform: uppercase;
+}
 
-  .matrix-note {
-    background: #f0f7fa;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 20px;
-    font-size: 14px;
-    line-height: 1.8;
-    margin-top: 20px;
-  }
+.pressure.low  { background: #d4f0e4; color: #1a6a44; }
+.pressure.mod  { background: #fff0d0; color: #8a5000; }
 
-  .report-footer {
-    margin-top: 80px;
-    padding-top: 32px;
-    border-top: 2px solid var(--border);
-    text-align: center;
-    font-family: 'Courier New', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
+/* Priority matrix highlight */
+.matrix-note {
+background: #f0f7fa;
+border: 1px solid var(--border);
+border-radius: 3px;
+padding: 16px 20px;
+font-size: 13px;
+line-height: 1.7;
+margin-top: 16px;
+}
+
+.matrix-note strong { color: var(--accent); }
+
+/* Footer */
+.report-footer {
+margin-top: 60px;
+padding-top: 24px;
+border-top: 2px solid var(--border);
+text-align: center;
+font-family: 'Courier New', monospace;
+font-size: 10px;
+letter-spacing: 2px;
+color: var(--muted);
+text-transform: uppercase;
+}
 </style>
+
 </head>
 <body>
 
 <!-- ═══════════════════════════════════════════ HERO ═══ -->
+
 <div class="hero">
   <canvas id="c"></canvas>
   <div class="hero-ui">
@@ -417,11 +437,16 @@
 </div>
 
 <!-- ═══════════════════════════════════════════ REPORT ═══ -->
+
 <div class="report">
+
+  <!-- CONTEXT -->
 
   <div class="context-block">
     <strong>Strategic Context —</strong> If real-time tide, temperature, and social chatter data are synthesized with geospatial access mapping, we can identify 3+ high-probability shore/wade targets with species-specific strike windows within 72 hours.
   </div>
+
+  <!-- SECTION 1: ACCESS POINTS -->
 
   <div class="section">
     <div class="section-label">Section 01</div>
@@ -437,13 +462,17 @@
     <div class="alert"><strong>Hypothesis Validated:</strong> 3+ high-probability boatless targets confirmed across the corridor.</div>
   </div>
 
+  <!-- SECTION 2: TIDAL WINDOWS -->
+
   <div class="section">
     <div class="section-label">Section 02</div>
     <h2>Tidal & Solunar Windows — 72-Hour Forecast</h2>
     <div class="tbl-wrap">
       <table>
         <thead>
-          <tr><th>Day</th><th>Time Window</th><th>Solunar</th><th>Conditions</th><th>Priority</th></tr>
+          <tr>
+            <th>Day</th><th>Time Window</th><th>Solunar</th><th>Conditions</th><th>Priority</th>
+          </tr>
         </thead>
         <tbody>
           <tr><td>Wed May 13</td><td>4:28–5:58 PM CDT</td><td>2/5</td><td>SE 5-10 kt, smooth</td><td>Low</td></tr>
@@ -458,6 +487,8 @@
       <strong>Top Signal:</strong> NEW MOON confirmed May 15 (0.1% illumination) = peak spring tide surge + maximum solunar activity. Water temp 82.8°F live-confirmed. Tidal range strengthening from 0.4 ft today to 1.7 ft by May 18.
     </div>
   </div>
+
+  <!-- SECTION 3: SOCIAL CHATTER -->
 
   <div class="section">
     <div class="section-label">Section 03</div>
@@ -474,86 +505,195 @@
     <div class="alert"><strong>Tournament Pressure Warning:</strong> The Professional Redfish League Tournament is scheduled May 29–30, 2026 on Matagorda Bay. Fish the area before this window to avoid maximum boat traffic congestion.</div>
   </div>
 
+  <!-- SECTION 4: SPECIES BEHAVIOR -->
+
   <div class="section">
     <div class="section-label">Section 04</div>
     <h2>Species Behavior Model</h2>
-    <h3>Environmental Parameters</h3>
-    <ul>
-      <li><strong>Water Temp:</strong> ~82.8°F — active feeding conditions</li>
-      <li><strong>Season:</strong> Spring — baitfish moving onto shallow grass flats</li>
-      <li><strong>Tidal Pattern:</strong> Mixed diurnal; wind-driven fluctuations dominant; tidal range strengthening through May 18</li>
-    </ul>
 
-    <div class="target-card">
-      <h4>Target 1 — Magnolia Beach Shoreline Gut · Redfish</h4>
-      <div class="row"><strong>Strike Window</strong><span>Incoming tide +1.5 to +3 hours, dawn</span></div>
-      <div class="row"><strong>Behavior</strong><span>Schooling in shallow shell-bottom pockets, aggressive opportunistic feeding</span></div>
-      <div class="row"><strong>Presentation</strong><span>1/4oz gold spoon or live finger mullet under popping cork</span></div>
-      <div class="row"><strong>Avoid</strong><span>Weekend midday — high social chatter density detected</span></div>
-    </div>
+<h3>Environmental Parameters</h3>
+<ul>
+  <li><strong>Water Temp:</strong> ~82.8°F — active feeding conditions</li>
+  <li><strong>Season:</strong> Spring — baitfish moving onto shallow grass flats</li>
+  <li><strong>Tidal Pattern:</strong> Mixed diurnal; wind-driven fluctuations dominant; tidal range strengthening through May 18</li>
+</ul>
 
-    <div class="target-card">
-      <h4>Target 2 — Indianola Pier Dropoffs · Spotted Seatrout</h4>
-      <div class="row"><strong>Strike Window</strong><span>Outgoing tide last 2 hours, pre-sunrise</span></div>
-      <div class="row"><strong>Behavior</strong><span>Staging on deeper adjacent structure; slower metabolism requires slower retrieve</span></div>
-      <div class="row"><strong>Presentation</strong><span>Soft plastic paddletail (chartreuse/white) on 1/8oz jighead, near-bottom</span></div>
-      <div class="row"><strong>Confidence</strong><span>HIGH</span></div>
-    </div>
+<h3>Target Profiles</h3>
 
-    <div class="target-card">
-      <h4>Target 3 — POC Jetty Base, Interior Side · Flounder</h4>
-      <div class="row"><strong>Strike Window</strong><span>Slack-to-incoming transition, afternoon</span></div>
-      <div class="row"><strong>Behavior</strong><span>Ambushing at current seams where jetty deflects tidal flow</span></div>
-      <div class="row"><strong>Presentation</strong><span>Live mud minnow on Carolina rig OR Berkley Gulp shrimp, dead-slow drag</span></div>
-      <div class="row"><strong>Crowd Risk</strong><span>MODERATE — arrive early or target weekday</span></div>
-    </div>
+<div class="target-card">
+  <h4>Target 1 — Magnolia Beach Shoreline Gut · Redfish</h4>
+  <div class="row"><strong>Strike Window</strong><span>Incoming tide +1.5 to +3 hours, dawn</span></div>
+  <div class="row"><strong>Behavior</strong><span>Schooling in shallow shell-bottom pockets, aggressive opportunistic feeding</span></div>
+  <div class="row"><strong>Presentation</strong><span>1/4oz gold spoon or live finger mullet under popping cork</span></div>
+  <div class="row"><strong>Avoid</strong><span>Weekend midday — high social chatter density detected</span></div>
+</div>
+
+<div class="target-card">
+  <h4>Target 2 — Indianola Pier Dropoffs · Spotted Seatrout</h4>
+  <div class="row"><strong>Strike Window</strong><span>Outgoing tide last 2 hours, pre-sunrise</span></div>
+  <div class="row"><strong>Behavior</strong><span>Staging on deeper adjacent structure; slower metabolism requires slower retrieve</span></div>
+  <div class="row"><strong>Presentation</strong><span>Soft plastic paddletail (chartreuse/white) on 1/8oz jighead, near-bottom</span></div>
+  <div class="row"><strong>Confidence</strong><span>HIGH</span></div>
+</div>
+
+<div class="target-card">
+  <h4>Target 3 — POC Jetty Base, Interior Side · Flounder</h4>
+  <div class="row"><strong>Strike Window</strong><span>Slack-to-incoming transition, afternoon</span></div>
+  <div class="row"><strong>Behavior</strong><span>Ambushing at current seams where jetty deflects tidal flow</span></div>
+  <div class="row"><strong>Presentation</strong><span>Live mud minnow on Carolina rig OR Berkley Gulp shrimp, dead-slow drag</span></div>
+  <div class="row"><strong>Crowd Risk</strong><span>MODERATE — arrive early or target weekday</span></div>
+</div>
+
   </div>
+
+  <!-- SECTION 5: LURE & BAIT -->
+
+  <div class="section">
+    <div class="section-label">Section 05</div>
+    <h2>Lure & Bait Strike Plan</h2>
+
+<h3>Condition Synthesis</h3>
+<ul>
+  <li><strong>Water Temp:</strong> ~72–76°F — transitional feeding trigger active</li>
+  <li><strong>Clarity:</strong> Slightly stained after recent wind; cleaner near jetties</li>
+  <li><strong>Tides:</strong> Mixed diurnal; falling tide windows favoring structure drain points</li>
+  <li><strong>Social Chatter Signal:</strong> Magnolia Beach reports crowded weekends; POC jetties showing consistent keeper activity</li>
+</ul>
+
+<h3>High-Probability Targets</h3>
+
+<div class="target-card">
+  <h4>Redfish · Magnolia Beach Spoil Banks</h4>
+  <div class="row"><strong>Tide Window</strong><span>Last 2hrs falling + 1hr incoming (6AM–9AM)</span></div>
+  <div class="row"><strong>Lure</strong><span>1/4oz gold spoon OR live finger mullet on kahle hook</span></div>
+  <div class="row"><strong>Why</strong><span>Redfish pushing shallow grass edges on falling water</span></div>
+</div>
+
+<div class="target-card">
+  <h4>Spotted Seatrout · Indianola Pier Flats</h4>
+  <div class="row"><strong>Tide Window</strong><span>Incoming mid-tide, low-light (dawn/dusk)</span></div>
+  <div class="row"><strong>Lure</strong><span>Mirrolure 52M or 5" Gulp shrimp under popping cork</span></div>
+  <div class="row"><strong>Why</strong><span>Trout staging on baitfish moving over oyster shell bottom</span></div>
+</div>
+
+<div class="target-card">
+  <h4>Flounder · POC Jetty Base (South Side)</h4>
+  <div class="row"><strong>Tide Window</strong><span>Slack-to-incoming transition</span></div>
+  <div class="row"><strong>Lure</strong><span>3" Gulp Shrimp, white/chartreuse, Texas-rigged on 1/4oz jighead</span></div>
+  <div class="row"><strong>Why</strong><span>Flounder ambush position in current seam alongside granite structure</span></div>
+</div>
+
+<div class="alert"><strong>⚠ Avoid:</strong> Matagorda shoreline crowds Saturday AM per recent reports.</div>
+
+  </div>
+
+  <!-- SECTION 6: 72-HOUR STRIKE PLAN -->
+
+  <div class="section">
+    <div class="section-label">Section 06</div>
+    <h2>72-Hour Strike Plan</h2>
+    <p style="font-family:'Courier New',monospace;font-size:12px;color:var(--muted);margin-bottom:24px;">Water Temp Est: 68–72°F &nbsp;·&nbsp; Conditions: Seasonal Transition &nbsp;·&nbsp; Synthesis: May 13, 2026</p>
+
+<h3>Location 1 — Indianola Fishing Pier</h3>
+<p style="font-size:13px;color:var(--muted);margin-bottom:10px;">Free public pier · vehicle parking · wade zones flanking structure</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Hour Block</th><th>Species</th><th>Tide Window</th><th>Strike Method</th></tr></thead>
+    <tbody>
+      <tr><td>H0–6 (Predawn)</td><td>Speckled Trout</td><td>Outgoing −1hr to slack</td><td>1/4oz jighead + Gulp Shrimp (chartreuse)</td></tr>
+      <tr><td>H6–12 (Morning)</td><td>Redfish</td><td>Incoming first push</td><td>Gold spoon or live finger mullet under popping cork</td></tr>
+      <tr><td>H36–42 (Next dawn)</td><td>Flounder</td><td>Slack-to-incoming</td><td>Berkley Gulp Alive shrimp on 1/8oz jighead, drag bottom slowly</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="matrix-note"><strong>Best Strike Windows:</strong> H2–H4, H37–H40 &nbsp;·&nbsp; <strong>Avoid:</strong> Midday H10–H14 (pier crowding reported)</div>
+
+<h3>Location 2 — Magnolia Beach Shoreline</h3>
+<p style="font-size:13px;color:var(--muted);margin-bottom:10px;">County beach · hard-bottom wade · minimal crowd pressure currently</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Hour Block</th><th>Species</th><th>Tide Window</th><th>Strike Method</th></tr></thead>
+    <tbody>
+      <tr><td>H24–30 (Dawn Day 2)</td><td>Redfish</td><td>Incoming +2hrs</td><td>Weedless gold spoon, wade grass edges</td></tr>
+      <tr><td>H28–32</td><td>Speckled Trout</td><td>High tide flat activity</td><td>MirrOlure MirrOdine (silver/black back) slow twitch</td></tr>
+      <tr><td>H48–54 (Dawn Day 3)</td><td>Flounder</td><td>Outgoing over shell</td><td>3" Paddle tail (white), dead-drift current seams</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="matrix-note"><strong>Best Strike Windows:</strong> H25–H29, H49–H52 &nbsp;·&nbsp; Wade north toward spoil island edge — less pressure, better structure</div>
+
+<h3>Location 3 — Port O'Connor Jetties (Pass Cavallo)</h3>
+<p style="font-size:13px;color:var(--muted);margin-bottom:10px;">Public jetty walk · strong current structure · deepwater access</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Hour Block</th><th>Species</th><th>Tide Window</th><th>Strike Method</th></tr></thead>
+    <tbody>
+      <tr><td>H12–18 (Midday–Eve Day 1)</td><td>Redfish</td><td>Outgoing rip current</td><td>Cut crab or shrimp on fishfinder rig, jetty shadow line</td></tr>
+      <tr><td>H18–22 (Evening)</td><td>Speckled Trout</td><td>Last outgoing hour</td><td>Topwater (Heddon Saltwater Spook) low-light window</td></tr>
+      <tr><td>H60–66 (Evening Day 3)</td><td>Flounder</td><td>Slack water, jetty base</td><td>Live mud minnow on 1/4oz jighead, hold bottom</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="matrix-note"><strong>Best Strike Windows:</strong> H14–H17, H19–H21 &nbsp;·&nbsp; <strong>Chatter Alert:</strong> Weekend pressure increases H48+ — execute Day 3 early</div>
+
+<div style="margin-top:24px;padding:18px 22px;background:var(--navy);border-radius:3px;color:#a8c4d4;font-size:13px;line-height:1.75;">
+  <strong style="color:var(--teal);">Priority Matrix —</strong> All three locations fish best on moving water. Avoid dead slack beyond 30 minutes. Prioritize outgoing tide at POC, incoming at Magnolia. At 68–72°F, trout push into 2–4ft flats mid-morning; flounder stage near structure transitions ahead of front movement.
+</div>
+
+  </div>
+
+  <!-- SECTION 7: CROWD AVOIDANCE -->
 
   <div class="section">
     <div class="section-label">Section 07</div>
     <h2>Low-Pressure Alternative Targets</h2>
     <p>For anglers seeking to avoid the highest-chatter zones, three verified low-pressure alternatives were identified within the same corridor.</p>
 
-    <div class="spot-card">
-      <h4>Spot 1 — Magnolia Beach Shell Ridge (Lavaca Bay East Flat)</h4>
-      <div class="pressure low">Pressure Index: Low</div>
-      <ul>
-        <li><strong>Species:</strong> Redfish primary, Trout secondary</li>
-        <li><strong>Strike Window:</strong> Incoming tide +1.5hrs, dawn 0530–0730</li>
-        <li><strong>Lure:</strong> Gold spoon or live finger mullet under popping cork</li>
-        <li><strong>Wade Depth:</strong> Knee-to-thigh · Hard shell bottom</li>
-      </ul>
-    </div>
+<div class="spot-card">
+  <h4>Spot 1 — Magnolia Beach Shell Ridge (Lavaca Bay East Flat)</h4>
+  <div class="pressure low">Pressure Index: Low</div>
+  <ul>
+    <li><strong>Species:</strong> Redfish primary, Trout secondary</li>
+    <li><strong>Strike Window:</strong> Incoming tide +1.5hrs, dawn 0530–0730</li>
+    <li><strong>Lure:</strong> Gold spoon or live finger mullet under popping cork</li>
+    <li><strong>Wade Depth:</strong> Knee-to-thigh · Hard shell bottom</li>
+  </ul>
+</div>
 
-    <div class="spot-card">
-      <h4>Spot 2 — Indianola Flats South of Pier (Not the Pier Itself)</h4>
-      <div class="pressure mod">Pressure Index: Moderate-Low</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:10px;">Pier drawing crowds — wade south 200 yards</p>
-      <ul>
-        <li><strong>Species:</strong> Flounder / Trout</li>
-        <li><strong>Strike Window:</strong> Falling tide, mid-afternoon 1400–1700</li>
-        <li><strong>Lure:</strong> Chartreuse Gulp! shrimp on 1/4oz jighead, slow drag</li>
-        <li><strong>Access:</strong> Public beach — ankle-to-knee wade</li>
-      </ul>
-    </div>
+<div class="spot-card">
+  <h4>Spot 2 — Indianola Flats South of Pier (Not the Pier Itself)</h4>
+  <div class="pressure mod">Pressure Index: Moderate-Low</div>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:10px;">Pier drawing crowds — wade south 200 yards</p>
+  <ul>
+    <li><strong>Species:</strong> Flounder / Trout</li>
+    <li><strong>Strike Window:</strong> Falling tide, mid-afternoon 1400–1700</li>
+    <li><strong>Lure:</strong> Chartreuse Gulp! shrimp on 1/4oz jighead, slow drag</li>
+    <li><strong>Access:</strong> Public beach — ankle-to-knee wade</li>
+  </ul>
+</div>
 
-    <div class="spot-card">
-      <h4>Spot 3 — POC Bayou Drain (West of Jetties)</h4>
-      <div class="pressure low">Pressure Index: Low</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:10px;">Jetties flagged HIGH chatter/crowded</p>
-      <ul>
-        <li><strong>Species:</strong> Redfish concentration</li>
-        <li><strong>Strike Window:</strong> Dead-low to first incoming push, 0600–0800</li>
-        <li><strong>Lure:</strong> Weedless gold/red spoon or live shrimp bottom-rigged</li>
-      </ul>
-    </div>
-    <div class="alert"><strong>⚠ Avoid:</strong> POC Jetty tips (overcrowded per chatter) &nbsp;·&nbsp; Pier railings on weekends</div>
+<div class="spot-card">
+  <h4>Spot 3 — POC Bayou Drain (West of Jetties)</h4>
+  <div class="pressure low">Pressure Index: Low</div>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:10px;">Jetties flagged HIGH chatter/crowded</p>
+  <ul>
+    <li><strong>Species:</strong> Redfish concentration</li>
+    <li><strong>Strike Window:</strong> Dead-low to first incoming push, 0600–0800</li>
+    <li><strong>Lure:</strong> Weedless gold/red spoon or live shrimp bottom-rigged</li>
+  </ul>
+</div>
+
+<div class="alert"><strong>⚠ Avoid:</strong> POC Jetty tips (overcrowded per chatter) &nbsp;·&nbsp; Pier railings on weekends</div>
+
   </div>
 
   <div class="report-footer">
-    Gulf Coast Saltwater Fishing · Strike Intelligence · May 13, 2026
+    Gulf Coast Saltwater Fishing · Shore & Wade Strike Intelligence · May 13, 2026
   </div>
-</div>
+
+</div><!-- /report -->
+
+<!-- ═══════════════════════════════════════════ CANVAS SCRIPT ═══ -->
 
 <script>
 const canvas = document.getElementById('c');
@@ -561,67 +701,198 @@ const ctx = canvas.getContext('2d');
 let W, H, t = 0;
 
 function resize() {
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
+  W = canvas.width  = canvas.offsetWidth;
+  H = canvas.height = canvas.offsetHeight;
 }
 resize();
 window.addEventListener('resize', resize);
 
-const birds = [
-  { x: 100, y: 150, s: 0.5, d: 1 },
-  { x: 250, y: 120, s: 0.4, d: 1.2 },
-  { x: 400, y: 180, s: 0.6, d: 0.8 }
-];
+const particles = [];
+function mkP() {
+  return { x: Math.random()*W, y: H*0.48+Math.random()*H*0.05,
+    r: Math.random()*2+0.4, vx:(Math.random()-0.5)*0.4,
+    vy:-(Math.random()*0.6+0.2), life:1, decay:Math.random()*0.008+0.003 };
+}
+for (let i=0;i<60;i++){const p=mkP();p.life=Math.random();particles.push(p);}
 
-function drawBird(x, y, flap) {
-  ctx.strokeStyle = "rgba(168, 196, 212, 0.4)";
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.moveTo(x - 10, y + flap);
-  ctx.quadraticCurveTo(x, y - 5 + flap, x + 10, y + flap);
-  ctx.stroke();
+const birds = Array.from({length:6},(_,i)=>({
+  x:-60+i*130, y:H*0.12+Math.sin(i*1.3)*30,
+  spd:0.28+i*0.04, wing:i*0.8, scale:0.6+Math.random()*0.5
+}));
+
+const rays = Array.from({length:9},(_,i)=>({
+  angle:-0.38+i*0.095, width:18+i*6,
+  alpha:0.018+Math.random()*0.022,
+  pulse:Math.random()*Math.PI*2, speed:0.004+Math.random()*0.004
+}));
+
+// UPDATED: Slower ripple speed (time * 0.2 instead of 0.9, etc)
+function waterY(x,time){
+  return H*0.48
+    +Math.sin(x*0.012+time*0.2)*7
+    +Math.sin(x*0.023-time*0.15)*4
+    +Math.sin(x*0.007+time*0.3)*5;
 }
 
-function waterY(x, time) {
-  return H * 0.5 + Math.sin(x * 0.012 + time * 0.8) * 8 + Math.sin(x * 0.02 - time * 0.5) * 5;
-}
+function draw(){
+  ctx.clearRect(0,0,W,H);
 
-function draw() {
-  ctx.clearRect(0, 0, W, H);
+  // sky
+  const sky=ctx.createLinearGradient(0,0,0,H*0.52);
+  sky.addColorStop(0,'#0d1f3c'); sky.addColorStop(0.35,'#1a3a5c');
+  sky.addColorStop(0.7,'#2a6080'); sky.addColorStop(1,'#3a8ca8');
+  ctx.fillStyle=sky; ctx.fillRect(0,0,W,H*0.52);
+
+  // horizon glow
+  const hg=ctx.createRadialGradient(W*0.35,H*0.43,0,W*0.35,H*0.43,W*0.55);
+  hg.addColorStop(0,'rgba(255,200,100,0.22)');
+  hg.addColorStop(0.3,'rgba(255,140,60,0.10)');
+  hg.addColorStop(1,'rgba(255,140,60,0)');
+  ctx.fillStyle=hg; ctx.fillRect(0,0,W,H*0.52);
+
+  // sun rays
+  const sx=W*0.35, sy=H*0.22;
+  ctx.save();
+  for(const r of rays){
+    const a=r.alpha*(0.7+0.3*Math.sin(t*r.speed+r.pulse));
+    ctx.save(); ctx.translate(sx,sy);
+    ctx.rotate(r.angle+Math.sin(t*0.003+r.pulse)*0.015);
+    const rg=ctx.createLinearGradient(0,0,0,H);
+    rg.addColorStop(0,`rgba(255,230,140,${a})`);
+    rg.addColorStop(0.5,`rgba(255,210,100,${a*0.5})`);
+    rg.addColorStop(1,'rgba(255,200,80,0)');
+    ctx.fillStyle=rg;
+    ctx.beginPath();
+    ctx.moveTo(-r.width*0.5,0); ctx.lineTo(r.width*0.5,0);
+    ctx.lineTo(r.width*2.5,H); ctx.lineTo(-r.width*2.5,H);
+    ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+  ctx.restore();
+
+  // sun
+  const sg=ctx.createRadialGradient(sx,sy,0,sx,sy,90);
+  sg.addColorStop(0,'rgba(255,230,140,0.35)');
+  sg.addColorStop(0.4,'rgba(255,190,80,0.15)');
+  sg.addColorStop(1,'rgba(255,160,40,0)');
+  ctx.fillStyle=sg; ctx.beginPath(); ctx.arc(sx,sy,90,0,Math.PI*2); ctx.fill();
+  const sd=ctx.createRadialGradient(sx,sy-4,2,sx,sy,26);
+  sd.addColorStop(0,'#fff8e0'); sd.addColorStop(0.5,'#ffe090'); sd.addColorStop(1,'#ffaa40');
+  ctx.fillStyle=sd; ctx.beginPath(); ctx.arc(sx,sy,26,0,Math.PI*2); ctx.fill();
+
+  // water fill
+  const wg=ctx.createLinearGradient(0,H*0.48,0,H);
+  wg.addColorStop(0,'#0d4a6b'); wg.addColorStop(0.15,'#0a3a55');
+  wg.addColorStop(0.5,'#072840'); wg.addColorStop(1,'#041520');
+  ctx.fillStyle=wg;
+  ctx.beginPath(); ctx.moveTo(0,waterY(0,t));
+  for(let x=0;x<=W;x+=4) ctx.lineTo(x,waterY(x,t));
+  ctx.lineTo(W,H); ctx.lineTo(0,H); ctx.closePath(); ctx.fill();
+
+  // surface shimmer
+  ctx.save(); ctx.globalAlpha=0.18;
+  const sm=ctx.createLinearGradient(0,H*0.47,0,H*0.54);
+  sm.addColorStop(0,'rgba(120,210,255,0)');
+  sm.addColorStop(0.5,'rgba(120,210,255,1)');
+  sm.addColorStop(1,'rgba(120,210,255,0)');
+  ctx.fillStyle=sm;
+  ctx.beginPath(); ctx.moveTo(0,waterY(0,t));
+  for(let x=0;x<=W;x+=4) ctx.lineTo(x,waterY(x,t));
+  ctx.lineTo(W,waterY(W,t)+8); ctx.lineTo(0,waterY(0,t)+8);
+  ctx.closePath(); ctx.fill(); ctx.restore();
+
+  // sun reflection - UPDATED: Slower bobbing
+  ctx.save();
+  for(let i=0;i<18;i++){
+    const yo=i*12+Math.sin(t*0.2+i*0.4)*4;
+    ctx.globalAlpha=(1-i/18)*0.06;
+    const rfl=ctx.createLinearGradient(sx-60,H*0.48,sx+60,H*0.48);
+    rfl.addColorStop(0,'rgba(255,220,100,0)');
+    rfl.addColorStop(0.4,'rgba(255,220,100,0.7)');
+    rfl.addColorStop(0.6,'rgba(255,220,100,0.7)');
+    rfl.addColorStop(1,'rgba(255,220,100,0)');
+    ctx.fillStyle=rfl;
+    ctx.beginPath();
+    ctx.ellipse(sx+Math.sin(t*0.1+i)*6,waterY(sx,t)+yo,(18-i)*8,2.5,0,0,Math.PI*2);
+    ctx.fill();
+  }
+  ctx.restore();
+
+  // water reflections
+  ctx.save(); ctx.globalAlpha=0.07;
+  for(let i=0;i<8;i++){
+    const rx=W*(0.1+i*0.11), ry=waterY(rx,t)+10+i*8;
+    ctx.fillStyle='#c8e8ff';
+    ctx.beginPath();
+    ctx.ellipse(rx,ry,(30+i*15)*(0.6+0.4*Math.sin(t*0.15+i)),2.5,0,0,Math.PI*2);
+    ctx.fill();
+  }
+  ctx.restore();
+
+  // mist
+  ctx.save();
+  const mst=ctx.createLinearGradient(0,H*0.44,0,H*0.5);
+  mst.addColorStop(0,'rgba(150,200,220,0)');
+  mst.addColorStop(0.5,'rgba(150,200,220,0.06)');
+  mst.addColorStop(1,'rgba(150,200,220,0)');
+  ctx.fillStyle=mst; ctx.fillRect(0,H*0.44,W,H*0.06); ctx.restore();
+
+  // birds
+  ctx.save(); ctx.strokeStyle='rgba(200,230,255,0.55)'; ctx.lineWidth=1.2;
+  for(const b of birds){
+    const wg=Math.sin(t*0.06+b.wing)*5*b.scale;
+    ctx.save(); ctx.translate(b.x,b.y); ctx.scale(b.scale,b.scale);
+    ctx.beginPath();
+    ctx.moveTo(-12,0); ctx.quadraticCurveTo(-6,-wg,0,0);
+    ctx.quadraticCurveTo(6,-wg,12,0); ctx.stroke(); ctx.restore();
+    b.x+=b.spd; if(b.x>W+80) b.x=-80;
+    b.y+=Math.sin(t*0.018+b.wing)*0.15;
+  }
+  ctx.restore();
+
+  // particles
+  for(const p of particles){
+    ctx.save(); ctx.globalAlpha=p.life*0.5;
+    ctx.fillStyle='#c8eeff';
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); ctx.restore();
+    p.x+=p.vx; p.y+=p.vy; p.life-=p.decay;
+    if(p.life<=0) Object.assign(p,mkP());
+  }
+
+  // lure/bobber - UPDATED: Slower vertical movement (t*0.2 instead of 0.8)
+  const lx=W*0.58;
+  const ly=waterY(lx,t)+Math.sin(t*0.2)*5-4;
+  const llx=lx+Math.cos(-0.45-Math.PI/2)*70;
+  const lly=ly+Math.sin(-0.45-Math.PI/2)*70;
+  ctx.save();
+  ctx.strokeStyle='rgba(200,230,255,0.55)'; ctx.lineWidth=0.8;
+  ctx.beginPath(); ctx.moveTo(llx,lly);
+  ctx.quadraticCurveTo(lx+10,ly-30,lx,ly-2); ctx.stroke();
+  ctx.translate(lx,ly);
+  const lg=ctx.createLinearGradient(-10,-5,10,5);
+  lg.addColorStop(0,'#ff5522'); lg.addColorStop(0.4,'#ffcc00'); lg.addColorStop(1,'#ff3300');
+  ctx.fillStyle=lg;
+  ctx.beginPath(); ctx.ellipse(0,0,10,5,0.15,0,Math.PI*2); ctx.fill();
+  ctx.strokeStyle='rgba(0,0,0,0.5)'; ctx.lineWidth=0.8; ctx.stroke();
+  ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(-5,-1.5,2.2,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle='#111'; ctx.beginPath(); ctx.arc(-5,-1.5,1,0,Math.PI*2); ctx.fill();
+  ctx.strokeStyle='rgba(180,200,220,0.8)'; ctx.lineWidth=1.2;
+  ctx.beginPath(); ctx.moveTo(0,5); ctx.quadraticCurveTo(5,12,3,16);
+  ctx.quadraticCurveTo(-1,19,-4,16); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(0,5); ctx.quadraticCurveTo(-5,12,-3,16); ctx.stroke();
   
-  // Sky Gradient
-  const sky = ctx.createLinearGradient(0, 0, 0, H * 0.5);
-  sky.addColorStop(0, '#0d1f3c'); sky.addColorStop(1, '#2a6080');
-  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H * 0.5);
-
-  // The Sun
-  ctx.shadowBlur = 40;
-  ctx.shadowColor = "rgba(255, 208, 128, 0.3)";
-  ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
-  ctx.beginPath();
-  ctx.arc(W * 0.8, H * 0.25, 45, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.shadowBlur = 0;
-
-  // The Birds
-  birds.forEach((b, i) => {
-    b.x += b.s;
-    if (b.x > W + 20) b.x = -20;
-    const flap = Math.sin(t * 0.1 + i) * 3;
-    drawBird(b.x, b.y, flap);
-  });
-
-  // Water Fill
-  ctx.fillStyle = '#0a3a55';
-  ctx.beginPath();
-  ctx.moveTo(0, waterY(0, t/10));
-  for (let x = 0; x <= W; x += 5) ctx.lineTo(x, waterY(x, t/10));
-  ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill();
+  // UPDATED: Slower lure ripple expansion
+  const sa=(Math.sin(t*0.2+1)+1)*0.5;
+  for(let i=1;i<=3;i++){
+    ctx.globalAlpha=sa*0.3; ctx.strokeStyle='#a0d8ef'; ctx.lineWidth=0.8;
+    ctx.beginPath(); ctx.ellipse(0,5,6+i*5+sa*4,(6+i*5+sa*4)*0.3,0,0,Math.PI*2); ctx.stroke();
+  }
+  ctx.restore();
 
   t++;
   requestAnimationFrame(draw);
 }
 draw();
 </script>
+
 </body>
 </html>
