@@ -40,6 +40,7 @@
     inset: 0;
     width: 100%; 
     height: 100%;
+    z-index: 1;
   }
 
   .hero-ui {
@@ -422,7 +423,6 @@
     <strong>Strategic Context —</strong> If real-time tide, temperature, and social chatter data are synthesized with geospatial access mapping, we can identify 3+ high-probability shore/wade targets with species-specific strike windows within 72 hours.
   </div>
 
-  <!-- SECTION 1 -->
   <div class="section">
     <div class="section-label">Section 01</div>
     <h2>Public Access Fishing Locations</h2>
@@ -437,16 +437,13 @@
     <div class="alert"><strong>Hypothesis Validated:</strong> 3+ high-probability boatless targets confirmed across the corridor.</div>
   </div>
 
-  <!-- SECTION 2 -->
   <div class="section">
     <div class="section-label">Section 02</div>
     <h2>Tidal & Solunar Windows — 72-Hour Forecast</h2>
     <div class="tbl-wrap">
       <table>
         <thead>
-          <tr>
-            <th>Day</th><th>Time Window</th><th>Solunar</th><th>Conditions</th><th>Priority</th>
-          </tr>
+          <tr><th>Day</th><th>Time Window</th><th>Solunar</th><th>Conditions</th><th>Priority</th></tr>
         </thead>
         <tbody>
           <tr><td>Wed May 13</td><td>4:28–5:58 PM CDT</td><td>2/5</td><td>SE 5-10 kt, smooth</td><td>Low</td></tr>
@@ -462,7 +459,6 @@
     </div>
   </div>
 
-  <!-- SECTION 3 -->
   <div class="section">
     <div class="section-label">Section 03</div>
     <h2>Social Chatter & Conditions Intelligence</h2>
@@ -478,7 +474,6 @@
     <div class="alert"><strong>Tournament Pressure Warning:</strong> The Professional Redfish League Tournament is scheduled May 29–30, 2026 on Matagorda Bay. Fish the area before this window to avoid maximum boat traffic congestion.</div>
   </div>
 
-  <!-- SECTION 4 -->
   <div class="section">
     <div class="section-label">Section 04</div>
     <h2>Species Behavior Model</h2>
@@ -514,7 +509,6 @@
     </div>
   </div>
 
-  <!-- SECTION 7 -->
   <div class="section">
     <div class="section-label">Section 07</div>
     <h2>Low-Pressure Alternative Targets</h2>
@@ -553,7 +547,6 @@
         <li><strong>Lure:</strong> Weedless gold/red spoon or live shrimp bottom-rigged</li>
       </ul>
     </div>
-
     <div class="alert"><strong>⚠ Avoid:</strong> POC Jetty tips (overcrowded per chatter) &nbsp;·&nbsp; Pier railings on weekends</div>
   </div>
 
@@ -574,6 +567,21 @@ function resize() {
 resize();
 window.addEventListener('resize', resize);
 
+const birds = [
+  { x: 100, y: 150, s: 0.5, d: 1 },
+  { x: 250, y: 120, s: 0.4, d: 1.2 },
+  { x: 400, y: 180, s: 0.6, d: 0.8 }
+];
+
+function drawBird(x, y, flap) {
+  ctx.strokeStyle = "rgba(168, 196, 212, 0.4)";
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(x - 10, y + flap);
+  ctx.quadraticCurveTo(x, y - 5 + flap, x + 10, y + flap);
+  ctx.stroke();
+}
+
 function waterY(x, time) {
   return H * 0.5 + Math.sin(x * 0.012 + time * 0.8) * 8 + Math.sin(x * 0.02 - time * 0.5) * 5;
 }
@@ -581,12 +589,29 @@ function waterY(x, time) {
 function draw() {
   ctx.clearRect(0, 0, W, H);
   
-  // Sky
+  // Sky Gradient
   const sky = ctx.createLinearGradient(0, 0, 0, H * 0.5);
   sky.addColorStop(0, '#0d1f3c'); sky.addColorStop(1, '#2a6080');
   ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H * 0.5);
 
-  // Water
+  // The Sun
+  ctx.shadowBlur = 40;
+  ctx.shadowColor = "rgba(255, 208, 128, 0.3)";
+  ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+  ctx.beginPath();
+  ctx.arc(W * 0.8, H * 0.25, 45, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.shadowBlur = 0;
+
+  // The Birds
+  birds.forEach((b, i) => {
+    b.x += b.s;
+    if (b.x > W + 20) b.x = -20;
+    const flap = Math.sin(t * 0.1 + i) * 3;
+    drawBird(b.x, b.y, flap);
+  });
+
+  // Water Fill
   ctx.fillStyle = '#0a3a55';
   ctx.beginPath();
   ctx.moveTo(0, waterY(0, t/10));
